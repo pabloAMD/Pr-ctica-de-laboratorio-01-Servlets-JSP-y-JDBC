@@ -1,0 +1,191 @@
+/* Made with love by Mutiullah Samim*/
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html, body {
+	background-image:
+		url('https://elsalvadorgram.com/wp-content/uploads/2017/01/paisajes1.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	font-family: 'Numans', sans-serif;
+	filter: brightness(0.5);
+}
+
+.container {
+	height: 100%;
+	align-content: center;
+}
+
+.card {
+	height: 300px;
+	margin-top: auto;
+	margin-bottom: auto;
+	width: 400px;
+	background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.card1 {
+	height: 500px;
+	margin-top: auto;
+	margin-bottom: auto;
+	width: 400px;
+	background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.social_icon span {
+	font-size: 60px;
+	margin-left: 10px;
+	color: #FFC312;
+}
+
+.social_icon span:hover {
+	color: white;
+	cursor: pointer;
+}
+
+.card-header h3 {
+	color: white;
+}
+
+.social_icon {
+	position: absolute;
+	right: 20px;
+	top: -45px;
+}
+
+.input-group-prepend span {
+	width: 50px;
+	background-color: #FFC312;
+	color: black;
+	border: 0 !important;
+}
+
+input:focus {
+	outline: 0 0 0 0 !important;
+	box-shadow: 0 0 0 0 !important;
+}
+
+.remember {
+	color: white;
+}
+
+.remember input {
+	width: 20px;
+	height: 20px;
+	margin-left: 15px;
+	margin-right: 5px;
+}
+
+.login_btn {
+	color: black;
+	background-color: #FFC312;
+	width: 100px;
+}
+
+.login_btn:hover {
+	color: black;
+	background-color: white;
+}
+
+.login-button {
+	color: black;
+	background-color: #FFC312;
+}
+
+.login-button:hover {
+	color: black;
+	background-color: white;
+}
+
+.links {
+	color: white;
+}
+
+.links a {
+	margin-left: 4px;
+}
+
+.separa {
+	width: 100%;
+	height: 60px;
+}
+
+.centrado {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+nav.navbar-findcond {
+	background: #9B9B9B;
+	opacity: 0.3;
+	border-color: #ccc;
+	box-shadow: 0 0 2px 0 #ccc;
+}
+
+nav.navbar-findcond a {
+	color: #f14444;
+}
+
+nav.navbar-findcond ul.navbar-nav a {
+	color: #f14444;
+	border-style: solid;
+	border-width: 0 0 2px 0;
+	border-color: #fff;
+}
+
+nav.navbar-findcond ul.navbar-nav a:hover, nav.navbar-findcond ul.navbar-nav a:visited,
+	nav.navbar-findcond ul.navbar-nav a:focus, nav.navbar-findcond ul.navbar-nav a:active
+	{
+	background: #fff;
+}
+
+nav.navbar-findcond ul.navbar-nav a:hover {
+	border-color: #f14444;
+}
+
+nav.navbar-findcond li.divider {
+	background: #ccc;
+}
+
+nav.navbar-findcond button.navbar-toggle {
+	background: #f14444;
+	border-radius: 2px;
+}
+
+nav.navbar-findcond button.navbar-toggle:hover {
+	background: #999;
+}
+
+nav.navbar-findcond button.navbar-toggle>span.icon-bar {
+	background: #fff;
+}
+
+nav.navbar-findcond ul.dropdown-menu {
+	border: 0;
+	background: #fff;
+	border-radius: 4px;
+	margin: 4px 0;
+	box-shadow: 0 0 4px 0 #ccc;
+}
+
+nav.navbar-findcond ul.dropdown-menu>li>a {
+	color: #444;
+}
+
+nav.navbar-findcond ul.dropdown-menu>li>a:hover {
+	background: #f14444;
+	color: #fff;
+}
+
+nav.navbar-findcond span.badge {
+	font-weight: normal;
+	font-size: 11px;
+	margin: 0 4px;
+}
+
+nav.navbar-findcond span.badge.new {
+	background: rgba(255, 0, 0, 0.8);
+	color: #fff;
+}
