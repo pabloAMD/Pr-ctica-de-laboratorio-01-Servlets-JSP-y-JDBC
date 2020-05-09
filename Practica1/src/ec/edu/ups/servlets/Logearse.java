@@ -41,7 +41,6 @@ public class Logearse extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		System.out.println("holaaaaaaaaaaa");
 		String mail = request.getParameter("email");
         String pass = request.getParameter("contra");
         
@@ -49,14 +48,15 @@ public class Logearse extends HttpServlet {
         Usuario user = userDao.findUsuario(mail, pass);
         if (user != null) {
             System.out.println("usuario encontrado");
+           
             HttpSession session = request.getSession(true);
             session.setAttribute("sesionID", String.valueOf(session.getId()));
-            session.setAttribute("userID", user.getCedula());
+            session.setAttribute("idUsu", user.getCedula());
             
             response.sendRedirect("/Practica1/agenda");
             
         }else{
-            //response.sendRedirect("login");
+            response.sendRedirect("/Practica1/html/Login.html");
         }     
 	}
 

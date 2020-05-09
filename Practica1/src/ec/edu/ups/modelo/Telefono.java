@@ -12,9 +12,8 @@ public class Telefono {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Telefono(int codigo, String numero, String tipo, String operadora) {
+	public Telefono(String numero, String tipo, String operadora) {
 		super();
-		this.codigo = codigo;
 		this.numero = numero;
 		this.tipo = tipo;
 		this.operadora = operadora;
@@ -52,6 +51,12 @@ public class Telefono {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	@Override
+	public String toString() {
+		return "Telefono [codigo=" + codigo + ", numero=" + numero + ", tipo=" + tipo + ", operadora=" + operadora
+				+ ", usuario=" + usuario + "]";
 	}
 	
 	

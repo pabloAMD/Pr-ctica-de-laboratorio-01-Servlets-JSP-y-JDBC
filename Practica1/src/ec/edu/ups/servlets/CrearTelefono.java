@@ -8,20 +8,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ec.edu.ups.dao.DaoFactory;
-import ec.edu.ups.dao.DaoUsuario;
+import ec.edu.ups.dao.DaoTelefono;
+import ec.edu.ups.modelo.Telefono;
 import ec.edu.ups.modelo.Usuario;
 
 /**
- * Servlet implementation class Agenda
+ * Servlet implementation class CrearTelefono
  */
-@WebServlet(name="Agenda", urlPatterns = {"/agenda"})
-public class Agenda extends HttpServlet {
+@WebServlet("/CrearTelefono")
+public class CrearTelefono extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Agenda() {
+    public CrearTelefono() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,27 +32,7 @@ public class Agenda extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String sesion = request.getParameter("cerrar");
-		if (sesion != null) {
-			System.out.println("cerrar sesiion");
-			if (sesion.equals("true")) {
-				request.getSession().invalidate();
-				response.sendRedirect("/Practica1/html/index.html");	
-			}
-			
-		}else {
-			
-			DaoUsuario userDao = DaoFactory.getFactory().getUsuarioDAO();
-
-	        Usuario user = userDao.findById(String.valueOf(request.getSession().getAttribute("idUsu")));
-	        
-	        
-	        request.setAttribute("user", user);
-
-	        getServletContext().getRequestDispatcher("/Jsp/Agenda.jsp").forward(request, response);
-
-	     
-		}
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -59,10 +40,17 @@ public class Agenda extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
-		
-		
-		
+		String numero = request.getParameter("numero");
+        String tipo = request.getParameter("tipo");
+        String operadora = request.getParameter("operadora");
+
+        DaoTelefono telefonoDao = DaoFactory.getFactory().getTelefonoDAO();
+        Telefono telefono = new Telefono(numero, tipo, operadora);
+        Usuario user = DaoFactory.getFactory().getUsuarioDAO().findById(String.valueOf(request.getSession().getAttribute("idUsu")));
+        telefono.setUsuario(user);
+        telefonoDao.create(telefono);
+        System.out.println(telefono);
+        response.sendRedirect("/Practica1/agenda");
 	}
 
 }

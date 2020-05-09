@@ -1,76 +1,117 @@
-@import url('https://fonts.googleapis.com/css?family=Numans');
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
-nav.navbar-findcond {
-	background: #9B9B9B;
-	border-color: #ccc;
-	box-shadow: 0 0 2px 0 #ccc;
+.navbar-icon-top .navbar-nav .nav-link > .fa {
+  position: relative;
+  width: 36px;
+  font-size: 24px;
 }
 
-nav.navbar-findcond a {
-	color: white;
+.navbar-icon-top .navbar-nav .nav-link > .fa > .badge {
+  font-size: 0.75rem;
+  position: absolute;
+  right: 0;
+  font-family: sans-serif;
 }
 
-nav.navbar-findcond ul.navbar-nav a {
-	color: white;
-	border-style: solid;
-	border-width: 0 0 2px 0;
-	border-color: #fff;
+.navbar-icon-top .navbar-nav .nav-link > .fa {
+  top: 3px;
+  line-height: 12px;
 }
 
-nav.navbar-findcond ul.navbar-nav a:hover, nav.navbar-findcond ul.navbar-nav a:visited,
-	nav.navbar-findcond ul.navbar-nav a:focus, nav.navbar-findcond ul.navbar-nav a:active
-	{
-	background: red;
+.navbar-icon-top .navbar-nav .nav-link > .fa > .badge {
+  top: -10px;
 }
 
-nav.navbar-findcond ul.navbar-nav a:hover {
-	border-color: red;
+@media (min-width: 576px) {
+  .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link {
+    text-align: center;
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link > .fa {
+    display: block;
+    width: 48px;
+    margin: 2px auto 4px auto;
+    top: 0;
+    line-height: 24px;
+  }
+
+  .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link > .fa > .badge {
+    top: -7px;
+  }
 }
 
-nav.navbar-findcond li.divider {
-	background: #ccc;
+@media (min-width: 768px) {
+  .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link {
+    text-align: center;
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link > .fa {
+    display: block;
+    width: 48px;
+    margin: 2px auto 4px auto;
+    top: 0;
+    line-height: 24px;
+  }
+
+  .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link > .fa > .badge {
+    top: -7px;
+  }
 }
 
-nav.navbar-findcond button.navbar-toggle {
-	background: white;
-	border-radius: 2px;
+@media (min-width: 992px) {
+  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link {
+    text-align: center;
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fa {
+    display: block;
+    width: 48px;
+    margin: 2px auto 4px auto;
+    top: 0;
+    line-height: 24px;
+  }
+
+  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fa > .badge {
+    top: -7px;
+  }
 }
 
-nav.navbar-findcond button.navbar-toggle:hover {
-	background: blue;
-}
+@media (min-width: 1200px) {
+  .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link {
+    text-align: center;
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 
-nav.navbar-findcond button.navbar-toggle>span.icon-bar {
-	background: #fff;
-}
+  .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fa {
+    display: block;
+    width: 48px;
+    margin: 2px auto 4px auto;
+    top: 0;
+    line-height: 24px;
+  }
 
-nav.navbar-findcond ul.dropdown-menu {
-	border: 0;
-	background: #fff;
-	border-radius: 4px;
-	margin: 4px 0;
-	box-shadow: 0 0 4px 0 #ccc;
-}
-
-nav.navbar-findcond ul.dropdown-menu>li>a {
-	color: #444;
-}
-
-nav.navbar-findcond ul.dropdown-menu>li>a:hover {
-	background: blue;
-	color: #fff;
-}
-
-nav.navbar-findcond span.badge {
-	background: #33383c;
-	font-weight: 200;
-	font-size: 11px;
-	margin: 0 4px;
-}
-
-nav.navbar-findcond span.badge.new {
-	background: rgba(255, 0, 0, 0.8);
-	color: #fff;
+  .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fa > .badge {
+    top: -7px;
+  }
 }
 
 .custab{
@@ -81,7 +122,7 @@ nav.navbar-findcond span.badge.new {
     transition: 0.5s;
     }
 .custab:hover{
-    box-shadow: 3px 3px 0px blue;
+    box-shadow: 3px 3px 0px transparent;
     transition: 0.5s;
     }
     
