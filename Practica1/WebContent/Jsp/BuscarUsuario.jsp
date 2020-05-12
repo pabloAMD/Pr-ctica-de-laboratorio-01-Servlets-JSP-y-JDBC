@@ -45,7 +45,7 @@
 <link rel="stylesheet" type="text/css"
 	href="/Practica1/css/styleindex.css">
 </head>
-<body  class="cuerpo">
+<body>
 	<c:set var="user" value="${requestScope['user']}" />
 	<nav
 		class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
@@ -67,13 +67,13 @@
 
 			</ul>
 			<ul class="navbar-nav ">
-				<li class="nav-item"><a class="nav-link" href="#"> <i
+				<li class="nav-item"><a class="nav-link" href="agenda"> <i
 						class="fa fa-user"> <span class="sr-only">(current)</span>
 					</i> Mi Cuenta
 				</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="agenda?cerrar=true"> <i class="fa fa-sign-out"
-						aria-hidden="true"> <span class="sr-only">(current)</span>
+				<li class="nav-item"><a class="nav-link" href="agenda?cerrar=true"> <i
+						class="fa fa-sign-out" aria-hidden="true"> <span
+							class="sr-only">(current)</span>
 					</i> Cerrar Sesion
 				</a></li>
 			</ul>
@@ -88,7 +88,7 @@
 
 
 	<c:choose>
-		<c:when test="${user.telefono.size() > 0}">
+		<c:when test="${user!=null}">
 			<div class="container" style="padding-top: 85px;">
 
 				<div class="table-wrapper">
@@ -96,27 +96,43 @@
 						<div class="row">
 							<div class="col-sm-8">
 								<h2>
-									Números <b>Telefonicos</b>
+									Resultados de la <b>búsqueda</b>
 								</h2>
 							</div>
-							<div class="col-sm-4">
-								<button data-toggle="modal" data-target="#crearTelefono"
-									type="button" class="btn btn-info add-new">
-									<i class="fa fa-plus"></i> Agregar Telefono
-								</button>
-							</div>
+							
 						</div>
+					</div>
+					<div>
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>Nombre</th>
+								<th>Apellido</th>
+								<th>Cedula</th>
+								<th>Correo</th>
+							</tr>
+						</thead>
+	
+							<tbody>
+								<tr>
+									<td>${user.nombre}</td>
+									<td>${user.apellido}</td>
+									<td>${user.cedula}</td>
+									<td><a style="color: red; text-decoration: underline;" href="mailto:${user.correo}">${user.correo}</a></td>
+								</tr>
+							</tbody>	
+					</table>
+					
 					</div>
 					<table class="table table-bordered">
 						<c:set var="i" value="${0}" />
 						<thead>
-
+							
 							<tr>
 								<th></th>
-								<th>Numeros</th>
+								<th>Numero</th>
 								<th>Tipo</th>
 								<th>Operadora</th>
-								<th>Actions</th>
 							</tr>
 						</thead>
 						<c:forEach var="telefono" items="${user.telefono}">
@@ -127,155 +143,30 @@
 									<td>${telefono.numero}</td>
 									<td>${telefono.tipo}</td>
 									<td>${telefono.operadora}</td>
-
-									<td>
-
-										<div>
-											<a class="edit" title="Editar" data-toggle="tooltip"><i
-												data-toggle="modal" data-target="#editarTelefono${i}"
-												class=" material-icons"></i></a> <a class="delete"
-												title="Eliminar" data-toggle="tooltip"><i
-												data-toggle="modal" data-target="#eliminartelefono${i}"
-												class="material-icons"></i></a>
-										</div>
-
-									</td>
 								</tr>
 
 							</tbody>
-							<div id="editarTelefono${i}" class="modal fade" tabindex="-1"
-								role="dialog">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<h5 class="modal-title" id="exampleModalCenterTitle">Numero:
-												${telefono.numero}</h5>
-											<button type="button" class="close" data-dismiss="modal"
-												aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-										</div>
-										<form action="EditarTelefono" method="POST">
-											<input type="hidden" name="codigo" value="${telefono.codigo}">
-											<div class="modal-body">
-												<div class="form-group">
-													<label for="numero">Numero</label> <input type="text"
-														class="form-control" id="numero" name="numero"
-														value="${telefono.numero}" required="">
-												</div>
+							<
 
-												<div class="form-group">
-													<label for="tipo">Tipo</label> <input type="text"
-														class="form-control" id="tipo" name="tipo" required=""
-														placeholder="${telefono.tipo}">
-
-												</div>
-												<div class="form-group">
-													<label for="operadora">Operadora</label> <input type="text"
-														class="form-control" id="operadora" name="operadora"
-														required="" placeholder="${telefono.operadora}">
-
-												</div>
-
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-primary"
-													data-dismiss="modal">Cerrar</button>
-												<button type="submit" class="btn btn-secondary">Guardar</button>
-											</div>
-										</form>
-									</div>
-								</div>
-							</div>
-
-							<div id="eliminartelefono${i}" class="modal fade" tabindex="-1"
-								role="dialog">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<h5 class="modal-title">Seguro que deseas eliminar el
-												numero</h5>
-											<button type="button" class="close" data-dismiss="modal"
-												aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-										</div>
-										<div class="modal-body">
-											<p>"${telefono.numero}"</p>
-										</div>
-										<div class="modal-footer">
-											<a class="btn btn-primary"
-												href="EditarTelefono?eliminar=true&telefonoCodigo=${telefono.codigo}">Aceptar</a>
-											<button type="button" class="btn btn-secondary"
-												data-dismiss="modal">Cancelar</button>
-										</div>
-									</div>
-								</div>
-							</div>
+							
 						</c:forEach>
 					</table>
 				</div>
 			</div>
 		</c:when>
 		<c:otherwise>
-			<h1>No hay contactos</h1>
+			<h1>El contacto no existe o no tiene informacion</h1>
 			<br>
 			<br>
 
-			<button data-toggle="modal" data-target="#crearTelefono"
-				type="button" class="btn btn-info add-new">
-				<i class="fa fa-plus"></i> Agregar Telefono
-			</button>
+		
 			<br>
 			<br>
 
 		</c:otherwise>
 	</c:choose>
 
-	<div class="modal fade" id="crearTelefono" tabindex="-1" role="dialog">
-		<div class="modal-dialog " role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalCenterTitle">Crear
-						Telefono</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<form action="CrearTelefono" method="POST">
-					<input type="hidden" name="codigo" value="${telefono.codigo}">
-					<div class="modal-body">
-						<div class="form-group">
-							<label for="numero">Numero</label> <input type="text"
-								class="form-control" id="numero" name="numero"
-								value="${telefono.numero}" required="">
-						</div>
-
-						<div class="form-group">
-							<label for="tipo">Tipo</label> <input type="text"
-								class="form-control" id="tipo" name="tipo" required=""
-								placeholder="${telefono.operadora}">
-
-						</div>
-						<div class="form-group">
-							<label for="operadora">Operadora</label> <input type="text"
-								class="form-control" id="operadora" name="operadora" required=""
-								placeholder="${telefono.tipo}">
-
-
-						</div>
-
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-						<button type="submit" class="btn btn-secondary">Guardar</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-
+	
 
 
 	<footer>
@@ -364,7 +255,8 @@
 		crossorigin="anonymous"></script>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	
 </body>
 </html>
