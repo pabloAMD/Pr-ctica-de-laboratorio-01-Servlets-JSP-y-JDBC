@@ -1,4 +1,11 @@
 # Practica-de-laboratorio-01-Servlets-JSP-y-JDBC
+
+# 1. Diagrama Base de datos
+
+![image](https://user-images.githubusercontent.com/33675679/81704113-14b6f900-9433-11ea-9285-a56982a2af61.png)
+
+Diagrama de la base de datos que fue implementada en MySQL
+
 # 2. Requerimientos Funcionales del sistema
 
 ## 2.1 Los usuarios pueden registrarse en la aplicación a través de un formulario de creación de cuentas.
