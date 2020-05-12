@@ -85,6 +85,10 @@ Mostramos informacion de la empresa, asi como su historia, objetivos, quienes so
 # Conclusiones
 
 Se realizo la utilización de servlets para la creación de la práctica, estos nos permiten generar paginas web de forma dinámica a partir de parámetros de petición que son enviados mediante el navegador web.
+
+
 Los servlets también son utilizados para mejorar la capacidad del servidor
+
+
 Se implententa un sistema JEE basado en Servlets, JSP y JBDC
 
